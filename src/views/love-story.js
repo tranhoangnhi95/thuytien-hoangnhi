@@ -84,12 +84,10 @@ const LoveStory = (props) => {
                 </svg>
               </div>
               <div className="timeline-content-card">
-                <span className="timeline-date">May 12, 2021</span>
+                <span className="timeline-date">10 - 08 - 2024</span>
                 <h3 className="section-subtitle">How We Met</h3>
                 <p className="section-content">
-                  A chance encounter at a rainy local bookstore. Two hands
-                  reached for the same vintage poetry collection, and a
-                  conversation began that never truly ended.
+                  Đôi lời giới thiệu ở cuối tiệc sau giải giao lưu cầu lông ITKV5 Open tuy vội vàng, mộc mạc nhưng cũng đủ để lại ấn tượng ban đầu cho nhau
                 </p>
               </div>
             </div>
@@ -119,12 +117,10 @@ const LoveStory = (props) => {
                 </svg>
               </div>
               <div className="timeline-content-card">
-                <span className="timeline-date">June 04, 2021</span>
+                <span className="timeline-date">14 - 09 - 2024</span>
                 <h3 className="section-subtitle">The First Date</h3>
                 <p className="section-content">
-                  A long walk through the botanical gardens followed by coffee
-                  that turned into dinner. We realized then that we shared more
-                  than just a love for books.
+                  Một buổi First Date mà cung bậc cảm xúc thay đổi liên tục với "Làm giàu với ma" rồi sau đó là một combo dimsum mà hai đứa chỉ biết nhìn nhau cười. Những điều đơn giản vậy thôi cũng trở thành kỷ niệm khó phai
                 </p>
               </div>
             </div>
@@ -154,12 +150,11 @@ const LoveStory = (props) => {
                 </svg>
               </div>
               <div className="timeline-content-card">
-                <span className="timeline-date">August 15, 2023</span>
+                <span className="timeline-date">20 - 10 - 2024</span>
                 <h3 className="section-subtitle">The Big Move</h3>
                 <p className="section-content">
-                  Blending our lives and our libraries into one cozy apartment.
-                  Learning the art of shared mornings and late-night kitchen
-                  dances.
+                  Tại "Hide Away Bistro Ben Tre" vào một ngày thật ý nghĩa để nói ra những lời chân thành, và càng ý nghĩa hơn khi nhận được sự đồng ý từ em để cùng nhau đi trên con đường tìm đến bến bờ hạnh phúc
+
                 </p>
               </div>
             </div>
@@ -180,12 +175,10 @@ const LoveStory = (props) => {
                 </svg>
               </div>
               <div className="timeline-content-card">
-                <span className="timeline-date">December 24, 2024</span>
+                <span className="timeline-date">20 - 10 - 2025</span>
                 <h3 className="section-subtitle">The Proposal</h3>
                 <p className="section-content">
-                  Under the winter stars at the same bookstore where we first
-                  met. A simple question, a tearful &quot;Yes,&quot; and the
-                  start of our forever chapter.
+                  Một lần nữa trở lại với "Hide Away Bistro Ben Tre" vẫn là nơi quen thuộc. Nhưng lần này là một dịp quan trọng hơn - ngày mà anh chính thức cầu hôn và được em đồng ý. Giây phút ấy cảm xúc như vỡ òa
                 </p>
               </div>
             </div>
