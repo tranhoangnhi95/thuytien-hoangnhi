@@ -181,8 +181,7 @@ const LoveStory = (props) => {
                   <span className="timeline-date">10 - 08 - 2024</span>
                   <h3 className="section-subtitle">How We Met</h3>
                   <p className="section-content">
-                    Đôi lời giới thiệu ở cuối tiệc sau giải giao lưu cầu lông ITKV5 Open tuy vội vàng, mộc mạc nhưng
-                    cũng đủ để lại ấn tượng ban đầu cho nhau
+                    Cuối tiệc sau giải giao lưu cầu lông ITKV5 Open, giữa những phút giây vội vàng, chúng mình có dịp được giới thiệu với nhau đôi lời giản dị. Một cuộc gặp gỡ ngắn ngủi, mộc mạc, nhưng đủ để lưu lại ấn tượng đầu tiên — nhẹ nhàng mà khó quên.
                   </p>
                 </div>
               </div>
