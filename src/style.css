@@ -4,7 +4,7 @@
   --spacing-sm: 0.75rem;
   --spacing-xl: 2rem;
   --spacing-xs: 0.5rem;
-  --color-scrim: color-mix(in oklab, #000000 65%, transparent);
+  --color-scrim: color-mix(in oklab, #000000 35%, transparent);
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
   --spacing-4xl: 4rem;
@@ -1117,7 +1117,7 @@
   color: var(--color-surface);
   border: 1px solid color-mix(in srgb, var(--color-surface) 10%, transparent);
   padding: var(--spacing-3xl);
-  max-width: 800px;
+  max-width: 100%;
   background: var(--color-scrim);
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   text-align: center;
@@ -1394,7 +1394,7 @@
 }
  
 .hero-foreground-block  .section-subtitle {
-  color: var(--color-primary);
+  color: var(--color-surface);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;

@@ -28,8 +28,19 @@
   padding-right: 12px;
   padding-bottom: 8px;
   backdrop-filter: blur(6px);
-  background-color: rgba(41, 41, 41, 0.41);
+  background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
 }
+
+.love-story-container4 {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.love-story-container4.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
  
 .love-story-icon43 {
   width: 24px;
@@ -37,9 +48,283 @@
 }
  
 .love-story-text4 {
-  color: white;
+  color: color-mix(in srgb, var(--color-on-surface) 60%, transparent);
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+}
+
+
+
+.invitation-section {
+  padding: 100px 24px;
+  background-color: var(--color-surface);
+}
+
+.invitation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.invitation-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.invitation-header .section-title {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+/* BODY */
+.invitation-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* TEXT */
+.invitation-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  background-color: var(--color-surface-elevated);
+}
+
+.invitation-text p {
+  margin-bottom: 24px;
+}
+
+/* IMAGE */
+.invitation-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .invitation-header {
+    margin-bottom: 40px;
+  }
+
+  .invitation-header .section-title {
+    font-size: 28px;
+  }
+
+  .invitation-body {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .invitation-text {
+    font-size: 16px;
+  }
+}
+
+.rsvp-section {
+  padding: 100px 24px;
+  background: var(--color-surface-elevated);
+}
+
+.rsvp-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.rsvp-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-subtitle {
+  margin-top: 12px;
+  color: #777;
+}
+
+/* FORM */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rsvp-form input,
+.rsvp-form textarea {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #f0cbd9;
+  font-size: 16px;
+}
+
+.rsvp-form button {
+  padding: 16px;
+  background: #f4a7b9;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.rsvp-form button:hover {
+  opacity: 0.9;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #f4a6b8;
+}
+
+/* INVALID sau khi user tương tác */
+.form-group input:invalid,
+.form-group textarea:invalid {
+  border-color: #e57373;
+}
+
+/* Text lỗi */
+.error-text {
+  color: #e57373;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Hiện lỗi khi input invalid và đã tương tác */
+.form-group input:invalid:not(:placeholder-shown) + .error-text,
+.form-group textarea:invalid:not(:placeholder-shown) + .error-text {
+  display: block;
+}
+
+
+
+.scroll-down-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-down-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.scroll-down-btn .arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  transform: rotate(45deg);
+  animation: bounce 1.6s infinite;
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.7;
+  }
+}
+
+
+
+.wedding-info-section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.wedding-info-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.wedding-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wedding-info-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.info-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-secondary);
+}
+
+.info-item {
+  margin-bottom: 12px;
+}
+
+.info-label {
+  display: block;
+  font-size: 13px;
+  color: #888;
+}
+
+.info-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .wedding-info-grid {
+    grid-template-columns: 1fr;
+  }
 }
