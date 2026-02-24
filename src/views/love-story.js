@@ -89,7 +89,7 @@ const LoveStory = (props) => {
             {/*  className="hero-video"*/}
             {/*></video>*/}
             <img
-                src="/assets/AC.JPG"
+                src="/assets/AC.webp"
                 alt="Wedding Hero"
                 className="hero-image"
             />
@@ -118,8 +118,11 @@ const LoveStory = (props) => {
             {/* HEADER – CENTER */}
             <div className="invitation-header">
               <h2 className="section-title">
-                Lời Cảm Ơn & Trân Trọng Kính Mời
+                Trân Trọng Kính Mời
               </h2>
+              <p className="section-subtitle">
+                Hạnh phúc được vun đắp không chỉ bởi những khoảnh khắc riêng tư, mà còn bởi những lời chúc phúc chân thành và sự đồng hành ấm áp từ người thân và bạn bè
+              </p>
             </div>
 
             {/* CONTENT */}
@@ -128,9 +131,8 @@ const LoveStory = (props) => {
               {/* LEFT – TEXT */}
               <div className="invitation-text">
                 <p>
-                  Chúng tôi thật hạnh phúc khi có gia đình và bạn bè luôn đồng hành trong hành trình yêu thương này.
+                  Chúng tôi vô cùng biết ơn vì đã có gia đình, bạn bè và những người thân yêu luôn đồng hành, yêu thương và chúc phúc suốt hành trình vừa qua.
                 </p>
-
                 <p>
                   Trân trọng kính mời bạn đến chung vui trong <strong>Lễ Thành Hôn</strong> của chúng tôi, để cùng chia sẻ khoảnh khắc đặc biệt khi chúng tôi bắt đầu một chương mới của cuộc đời.
                 </p>
@@ -139,7 +141,7 @@ const LoveStory = (props) => {
               {/* RIGHT – IMAGE */}
               <div className="invitation-image">
                 <img
-                    src="/assets/ANH_DAM_HOI_01.JPG"
+                    src="/assets/ANH_DAM_HOI_01.webp"
                     alt="Cô dâu và Chú rể"
                 />
               </div>
@@ -289,7 +291,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="1"
-                    src="/assets/TULE8347.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8347.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -299,7 +301,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="2"
-                    src="/assets/TULE8457.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8457.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -309,7 +311,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="3"
-                    src="/assets/TULE8521.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8521.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -319,7 +321,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="4"
-                    src="/assets/TULE8557.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8557.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -329,7 +331,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="5"
-                    src="/assets/TULE8599.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8599.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -339,7 +341,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="6"
-                    src="/assets/TULE8612.JPG?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/TULE8612.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -426,6 +428,10 @@ const LoveStory = (props) => {
                 <span className="info-label">Thời gian</span>
                 <span className="info-value">Thứ Bảy, 11/04/2026</span>
               </div>
+              <div className="info-item">
+                <span className="info-label">Nhằm ngày</span>
+                <span className="info-value">24 tháng 02 năm Bính Ngọ</span>
+              </div>
 
               <div className="info-item">
                 <span className="info-label">Địa điểm</span>
@@ -434,14 +440,21 @@ const LoveStory = (props) => {
         </span>
               </div>
 
-              <a
-                  href="https://maps.app.goo.gl/f3iFuy5ud8kEA1iU7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="map-link"
-              >
-                Xem Google Maps
-              </a>
+              {/*<iframe*/}
+              {/*    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"*/}
+              {/*    width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"*/}
+              {/*    referrerPolicy="no-referrer-when-downgrade"></iframe>*/}
+
+              <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"
+                  width="100%"
+                  height="300"
+                  style={{border: 0}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Map"
+              ></iframe>
             </div>
 
             {/* Nhà chú rể */}
@@ -454,20 +467,26 @@ const LoveStory = (props) => {
               </div>
 
               <div className="info-item">
+                <span className="info-label">Nhằm ngày</span>
+                <span className="info-value">25 tháng 02 năm Bính Ngọ</span>
+              </div>
+
+              <div className="info-item">
                 <span className="info-label">Địa điểm</span>
                 <span className="info-value">
             Tư gia nhà trai, Thị trấn Búng Tàu, Phụng Hiệp, Hậu Giang
         </span>
               </div>
-
-              <a
-                  href="https://maps.app.goo.gl/rRCnbgfSzE3EVcnw9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="map-link"
-              >
-                Xem Google Maps
-              </a>
+              <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d935.7920007072033!2d105.7782778!3d9.712527799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNDInNDUuMSJOIDEwNcKwNDYnNDEuOCJF!5e1!3m2!1svi!2s!4v1771916956778!5m2!1svi!2s"
+                  width="100%"
+                  height="300"
+                  style={{border: 0}}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Map"
+              ></iframe>
             </div>
           </div>
         </section>
