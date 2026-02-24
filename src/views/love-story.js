@@ -128,15 +128,11 @@ const LoveStory = (props) => {
               {/* LEFT – TEXT */}
               <div className="invitation-text">
                 <p>
-                  Chúng tôi vô cùng biết ơn vì đã có gia đình, bạn bè và những người thân yêu
-                  luôn đồng hành, yêu thương và chúc phúc suốt hành trình vừa qua.
+                  Chúng tôi thật hạnh phúc khi có gia đình và bạn bè luôn đồng hành trong hành trình yêu thương này.
                 </p>
 
                 <p>
-                  Với tất cả sự trân trọng và niềm hạnh phúc, chúng tôi xin được mời bạn đến
-                  tham dự <strong>Lễ Thành Hôn</strong> của chúng tôi để cùng sẻ chia
-                  khoảnh khắc thiêng liêng và đánh dấu khởi đầu của một chương mới
-                  trong cuộc đời.
+                  Trân trọng kính mời bạn đến chung vui trong <strong>Lễ Thành Hôn</strong> của chúng tôi, để cùng chia sẻ khoảnh khắc đặc biệt khi chúng tôi bắt đầu một chương mới của cuộc đời.
                 </p>
               </div>
 
@@ -181,7 +177,7 @@ const LoveStory = (props) => {
                   <span className="timeline-date">10 - 08 - 2024</span>
                   <h3 className="section-subtitle">How We Met</h3>
                   <p className="section-content">
-                    Cuối tiệc sau giải giao lưu cầu lông ITKV5 Open, giữa những phút giây vội vàng, chúng mình có dịp được giới thiệu với nhau đôi lời giản dị. Một cuộc gặp gỡ ngắn ngủi, mộc mạc, nhưng đủ để lưu lại ấn tượng đầu tiên — nhẹ nhàng mà khó quên.
+                    Cuối tiệc sau giải giao lưu cầu lông <strong>ITKV5 Open</strong>, giữa những phút giây vội vàng, chúng mình có dịp được giới thiệu với nhau đôi lời giản dị. Một cuộc gặp gỡ ngắn ngủi, mộc mạc, nhưng đủ để lưu lại ấn tượng đầu tiên — nhẹ nhàng mà khó quên.
                   </p>
                 </div>
               </div>
@@ -214,9 +210,8 @@ const LoveStory = (props) => {
                   <span className="timeline-date">14 - 09 - 2024</span>
                   <h3 className="section-subtitle">The First Date</h3>
                   <p className="section-content">
-                    Một buổi First Date mà cung bậc cảm xúc thay đổi liên tục với "Làm giàu với ma" rồi sau đó là một
-                    combo dimsum mà hai đứa chỉ biết nhìn nhau cười. Những điều đơn giản vậy thôi cũng trở thành kỷ niệm
-                    khó phai
+                    Buổi hẹn đầu tiên bắt đầu với “Làm giàu với ma” và khép lại bằng một bàn dimsum nhiều đến mức cả hai chỉ biết nhìn nhau cười.
+                    Chỉ vậy thôi, mà trở thành một kỷ niệm thật đáng nhớ trong hành trình yêu thương của chúng tôi.
                   </p>
                 </div>
               </div>
@@ -249,8 +244,7 @@ const LoveStory = (props) => {
                   <span className="timeline-date">20 - 10 - 2024</span>
                   <h3 className="section-subtitle">The Big Move</h3>
                   <p className="section-content">
-                    Tại "Hide Away Bistro Ben Tre" vào một ngày thật ý nghĩa để nói ra những lời chân thành, và càng ý
-                    nghĩa hơn khi nhận được sự đồng ý từ em để cùng nhau đi trên con đường tìm đến bến bờ hạnh phúc
+                    Tại <strong>"Hide Away Bistro Ben Tre"</strong> vào một ngày thật ý nghĩa, chúng tôi đã cùng nhau nói ra những điều chân thành nhất từ trái tim. Và khoảnh khắc nhận được cái gật đầu đồng ý ấy đã biến ngày hôm đó trở thành một dấu mốc đặc biệt — khi cả hai chính thức nắm tay nhau trên hành trình tìm đến bến bờ hạnh phúc.
 
                   </p>
                 </div>
@@ -276,8 +270,7 @@ const LoveStory = (props) => {
                   <span className="timeline-date">20 - 10 - 2025</span>
                   <h3 className="section-subtitle">The Proposal</h3>
                   <p className="section-content">
-                    Một lần nữa trở lại với "Hide Away Bistro Ben Tre" vẫn là nơi quen thuộc. Nhưng lần này là một dịp
-                    quan trọng hơn - ngày mà anh chính thức cầu hôn và được em đồng ý. Giây phút ấy cảm xúc như vỡ òa
+                    Một lần nữa trở lại <strong>"Hide Away Bistro Ben Tre"</strong> — vẫn là nơi quen thuộc ấy, nhưng lần này là một dịp đặc biệt hơn. Đó là ngày lời cầu hôn được cất lên và nhận được cái gật đầu đồng ý. Giây phút ấy, mọi cảm xúc như vỡ òa, mở ra một chặng đường mới đầy yêu thương.
                   </p>
                 </div>
               </div>
