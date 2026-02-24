@@ -1585,6 +1585,11 @@
     padding-left: 60px;
     justify-content: flex-start;
   }
+
+  .timeline-vertical-path::before {
+    left: 24px;
+  }
+
   .timeline-marker {
     left: 24px;
     width: 40px;
@@ -1600,6 +1605,17 @@
   }
   .looking-ahead-actions {
     flex-direction: column;
+  }
+
+  .timeline-content-card {
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .timeline-entry:nth-child(odd) .timeline-content-card,
+  .timeline-entry:nth-child(even) .timeline-content-card {
+    margin: 0 !important;
   }
 }
  
