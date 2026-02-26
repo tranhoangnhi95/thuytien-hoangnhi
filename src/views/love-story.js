@@ -33,6 +33,61 @@ const LoveStory = (props) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+
+    // =============================
+    // 2️⃣ Floating Hearts
+    // =============================
+    const container = document.querySelector(".floating-hearts");
+
+    let interval;
+
+    if (container) {
+      const createHeart = () => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        const icons = ["♡", "♥"];
+        const colors = [
+          "#ffdbe6",
+          "#ffe6ef",
+          "#fbe4ff",
+          "#fff0f5"
+        ];
+
+        heart.style.color =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        heart.innerHTML =
+            icons[Math.floor(Math.random() * icons.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        const size = 14 + Math.random() * 26;
+        heart.style.fontSize = size + "px";
+
+        const duration = 12 + Math.random() * 6;
+        heart.style.animationDuration = duration + "s";
+
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, duration * 1000);
+      };
+
+      interval = setInterval(createHeart, 900);
+    }
+
+    // =============================
+    // Cleanup
+    // =============================
+    return () => {
+      if (observer) observer.disconnect();
+      if (interval) clearInterval(interval);
+    };
+  }, []);
+
   const phoneRegex = /^(0|\+84)(3|5|7|8|9)\d{8}$/;
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,39 +133,34 @@ const LoveStory = (props) => {
           />
         </Helmet>
         <section className="love-story-hero">
-          <div className="hero-media-wrapper">
-            {/*<video*/}
-            {/*  src="https://videos.pexels.com/video-files/11698586/11698586-hd_1280_720_25fps.mp4"*/}
-            {/*  loop="true"*/}
-            {/*  muted="true"*/}
-            {/*  poster="https://images.pexels.com/videos/11698586/pictures/preview-0.jpeg"*/}
-            {/*  autoPlay="true"*/}
-            {/*  playsInline="true"*/}
-            {/*  className="hero-video"*/}
-            {/*></video>*/}
-            <img
-                src="/assets/AC.webp"
-                alt="Wedding Hero"
-                className="hero-image"
-            />
-            <div className="hero-overlay"></div>
-          </div>
-          <div className="hero-content-outer">
-            <div className="hero-foreground-block">
-              <span className="section-subtitle">Save The Day</span>
-              <h1 className="hero-title love-story-hero-title">
-                Hoàng Nhi &amp; Thủy Tiên
-              </h1>
-              <p className="hero-subtitle">
-                12 - 04 - 2026 • The Beginning of Forever
-              </p>
-              <div className="hero-actions">
-                <a href="#invitation" className="scroll-down-btn" aria-label="Scroll down">
-                  <span className="arrow"></span>
-                </a>
-              </div>
+          <img
+              src="/assets/AC.webp"
+              alt="Wedding Hero"
+              className="hero-image"
+          />
+
+          {/* Layer 2: Full overlay information panel */}
+          <div className="hero-info-layer">
+            <span className="section-subtitle">SAVE THE DAY</span>
+
+            <h1 className="hero-title love-story-hero-title">
+              Hoàng Nhi &amp; Thủy Tiên
+            </h1>
+
+            <p className="hero-subtitle">
+              12 - 04 - 2026
+            </p>
+            <p className="hero-subtitle">
+            The Beginning of Forever
+            </p>
+
+            <div className="hero-actions">
+              <a href="#invitation" className="scroll-down-btn">
+                <span className="arrow"></span>
+              </a>
             </div>
           </div>
+          <div className="floating-hearts"></div>
         </section>
         <section className="invitation-section" id="invitation">
           <div className="invitation-container">
@@ -121,7 +171,8 @@ const LoveStory = (props) => {
                 Trân Trọng Kính Mời
               </h2>
               <p className="section-subtitle">
-                Hạnh phúc được vun đắp không chỉ bởi những khoảnh khắc riêng tư, mà còn bởi những lời chúc phúc chân thành và sự đồng hành ấm áp từ người thân và bạn bè
+                Hạnh phúc được vun đắp không chỉ bởi những khoảnh khắc riêng tư, mà còn bởi những lời chúc phúc chân
+                thành và sự đồng hành ấm áp từ người thân và bạn bè
               </p>
             </div>
 
@@ -140,10 +191,20 @@ const LoveStory = (props) => {
 
               {/* RIGHT – IMAGE */}
               <div className="invitation-image">
-                <img
-                    src="/assets/ANH_DAM_HOI_01.webp"
-                    alt="Cô dâu và Chú rể"
-                />
+                <div className="easel-wrapper">
+
+                  <div className="wedding-board">
+                    <img
+                        src="/assets/ANH_DAM_HOI_01.webp"
+                        alt="Cô dâu và Chú rể"
+                    />
+                  </div>
+
+                  <div className="leg leg-left"></div>
+                  <div className="leg leg-right"></div>
+                  <div className="leg leg-back"></div>
+
+                </div>
               </div>
 
             </div>
@@ -440,10 +501,6 @@ const LoveStory = (props) => {
         </span>
               </div>
 
-              {/*<iframe*/}
-              {/*    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"*/}
-              {/*    width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"*/}
-              {/*    referrerPolicy="no-referrer-when-downgrade"></iframe>*/}
 
               <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"
