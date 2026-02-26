@@ -1150,10 +1150,40 @@
   padding: 0 var(--spacing-xl);
   max-width: var(--content-max-width);
 }
- 
+
 .timeline-header {
   text-align: center;
-  margin-bottom: var(--spacing-4xl);
+  margin-bottom: 90px;
+  position: relative;
+}
+.timeline-header .section-title, .gallery-intro .section-title , .rsvp-header .section-title, .wedding-info-header .section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #3a3a3a;
+  position: relative;
+}
+/* đường line trang trí bên dưới title */
+.timeline-header .section-title::after, .gallery-intro .section-title::after, .rsvp-header .section-title::after, .wedding-info-header .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 18px auto 0;
+  background: linear-gradient(
+          90deg,
+          transparent,
+          #f8c8dc,
+          transparent
+  );
+}
+.timeline-header .section-subtitle, .timeline-content-card .section-subtitle, .gallery-intro .section-subtitle, .rsvp-header .section-subtitle, .wedding-info-header .section-subtitle {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #777;
 }
  
 .timeline-vertical-path {
@@ -1403,7 +1433,7 @@
 .hero-foreground-block  .hero-subtitle {
   color: var(--color-surface);
   opacity: 0.9;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
  
 .timeline-vertical-path::before {

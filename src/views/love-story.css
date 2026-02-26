@@ -63,70 +63,6 @@
   background-color: var(--color-surface);
 }
 
-/*.invitation-container {*/
-/*  max-width: 1200px;*/
-/*  margin: 0 auto;*/
-/*}*/
-
-/*!* HEADER *!*/
-/*.invitation-header {*/
-/*  text-align: center;*/
-/*  margin-bottom: 64px;*/
-/*}*/
-
-/*.invitation-header .section-title {*/
-/*  font-size: 40px;*/
-/*  font-weight: 500;*/
-/*}*/
-
-/*!* BODY *!*/
-/*.invitation-body {*/
-/*  display: grid;*/
-/*  grid-template-columns: 1fr 1fr;*/
-/*  gap: 64px;*/
-/*  align-items: center;*/
-/*}*/
-
-/*!* TEXT *!*/
-/*.invitation-text {*/
-/*  font-size: 18px;*/
-/*  line-height: 1.8;*/
-/*  color: #444;*/
-/*  background-color: var(--color-surface-elevated);*/
-/*  font-family: var(--font-family-heading);*/
-/*}*/
-
-/*.invitation-text p {*/
-/*  margin-bottom: 24px;*/
-/*}*/
-
-/*!* IMAGE *!*/
-/*.invitation-image img {*/
-/*  width: 100%;*/
-/*  height: auto;*/
-/*  border-radius: 24px;*/
-/*  object-fit: contain;*/
-/*}*/
-
-/*@media (max-width: 768px) {*/
-/*  .invitation-header {*/
-/*    margin-bottom: 40px;*/
-/*  }*/
-
-/*  .invitation-header .section-title {*/
-/*    font-size: 28px;*/
-/*  }*/
-
-/*  .invitation-body {*/
-/*    grid-template-columns: 1fr;*/
-/*    text-align: center;*/
-/*  }*/
-
-/*  .invitation-text {*/
-/*    font-size: 16px;*/
-/*  }*/
-/*}*/
-
 /* new invitation*/
 
 .invitation-container {
@@ -162,8 +98,9 @@
 }
 
 .invitation-header .section-subtitle {
-  max-width: 700px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   font-size: 18px;
   line-height: 1.7;
   color: #777;
@@ -180,6 +117,7 @@
   font-size: 18px;
   line-height: 1.9;
   color: #444;
+  font-family: var(--font-family-heading);
 }
 
 .invitation-text p {
@@ -651,7 +589,7 @@
   font-weight: 300;
   letter-spacing: 2px;
   color: rgba(255, 240, 245, 0.9);
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-md);
 }
 
 

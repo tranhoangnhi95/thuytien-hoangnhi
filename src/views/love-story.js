@@ -10,28 +10,30 @@ import './love-story.css'
 const LoveStory = (props) => {
 
   useEffect(() => {
-    // =============================
-    // 1️⃣ Intersection Observer (giữ nguyên)
-    // =============================
     const button = document.querySelector(".love-story-container4");
     const rsvpSection = document.querySelector("#rsvp");
 
-    let observer;
+    if (!button || !rsvpSection) return;
 
-    if (button && rsvpSection) {
-      observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              button.classList.add("hidden");
-            } else {
-              button.classList.remove("hidden");
-            }
-          },
-          { threshold: 0.5 }
-      );
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            button.classList.add("hidden");
+          } else {
+            button.classList.remove("hidden");
+          }
+        },
+        {
+          threshold: 0.5, // khi RSVP hiện ~50%
+        }
+    );
 
-      observer.observe(rsvpSection);
-    }
+    observer.observe(rsvpSection);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
 
     // =============================
     // 2️⃣ Floating Hearts
@@ -84,7 +86,6 @@ const LoveStory = (props) => {
       if (observer) observer.disconnect();
       if (interval) clearInterval(interval);
     };
-
   }, []);
 
   const phoneRegex = /^(0|\+84)(3|5|7|8|9)\d{8}$/;
@@ -147,7 +148,10 @@ const LoveStory = (props) => {
             </h1>
 
             <p className="hero-subtitle">
-              12 - 04 - 2026 • The Beginning of Forever
+              12 - 04 - 2026
+            </p>
+            <p className="hero-subtitle">
+            The Beginning of Forever
             </p>
 
             <div className="hero-actions">
@@ -497,10 +501,6 @@ const LoveStory = (props) => {
         </span>
               </div>
 
-              {/*<iframe*/}
-              {/*    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"*/}
-              {/*    width="600" height="450" style="border:0;" allowFullScreen="" loading="lazy"*/}
-              {/*    referrerPolicy="no-referrer-when-downgrade"></iframe>*/}
 
               <iframe
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"
