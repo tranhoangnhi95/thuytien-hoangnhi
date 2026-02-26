@@ -262,7 +262,24 @@
 
   .invitation-image {
     order: 1;
+    margin-bottom: 40px;
   }
+
+  .easel-wrapper {
+
+    /* 🔥 thêm phần này */
+    padding-bottom: 140px; /* tạo không gian cho chân */
+  }
+
+  .leg {
+    bottom: 50px;  /* không cho tụt quá sâu */
+    height: 100px; /* chân ngắn hơn */
+  }
+
+  .wedding-board::after {
+    bottom: -15px;
+  }
+
 }
 
 .rsvp-section {
@@ -643,4 +660,26 @@
     transform: translateY(-110vh) scale(1.2);
     opacity: 0;
   }
+}
+
+/* ===== Desktop giữ nguyên ===== */
+.hero-names .name-line,
+.hero-names .amp {
+  display: inline;
+}
+
+/* ===== Tablet + Mobile ===== */
+@media (max-width: 1024px) {
+
+  .hero-names .name-line,
+  .hero-names .amp {
+    display: block;
+    text-align: center;
+  }
+
+  .hero-names .amp {
+    margin: 10px 0;
+    font-size: 0.9em;
+  }
+
 }

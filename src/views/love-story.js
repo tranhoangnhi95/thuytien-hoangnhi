@@ -143,8 +143,10 @@ const LoveStory = (props) => {
           <div className="hero-info-layer">
             <span className="section-subtitle">SAVE THE DAY</span>
 
-            <h1 className="hero-title love-story-hero-title">
-              Hoàng Nhi &amp; Thủy Tiên
+            <h1 className="hero-title love-story-hero-title hero-names">
+              <span className="name-line">Hoàng Nhi</span>
+              <span className="amp">&</span>
+              <span className="name-line">Thủy Tiên</span>
             </h1>
 
             <p className="hero-subtitle">
