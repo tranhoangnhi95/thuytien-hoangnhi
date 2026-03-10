@@ -571,7 +571,7 @@
   text-align: center;
   color: #fff;
   padding: 0 20px;
-  margin-top:  clamp(0px, 8vw, 190px)
+  margin-top:  clamp(0px, 9vw, 220px)
 }
 
 .hero-main-title {
