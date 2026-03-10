@@ -5,6 +5,7 @@ import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import './love-story.css'
 const TARGET_DATE = new Date("2026-04-12T00:00:00").getTime();
+import FlipCountdown from "../components/FlipCountdown";
 
 const LoveStory = (props) => {
 
@@ -177,7 +178,7 @@ const LoveStory = (props) => {
           />
         </Helmet>
         <section className="love-story-hero">
-
+          <div className="floating-hearts"></div>
           <picture className="hero-picture">
             {/* Màn hình dọc (mobile portrait) */}
             <source
@@ -208,12 +209,7 @@ const LoveStory = (props) => {
             </div>
             <p className="hero-date">12 April, 2026</p>
 
-            <div className="hero-countdown">
-              <div><strong>{String(days).padStart(2, "0")}</strong><span>Ngày</span></div>
-              <div><strong>{String(hours).padStart(2, "0")}</strong><span>Giờ</span></div>
-              <div><strong>{String(minutes).padStart(2, "0")}</strong><span>Phút</span></div>
-              <div><strong>{String(seconds).padStart(2, "0")}</strong><span>Giây</span></div>
-            </div>
+            <FlipCountdown/>
 
             <div className="hero-actions">
               <a href="#invitation" className="scroll-down-btn">
