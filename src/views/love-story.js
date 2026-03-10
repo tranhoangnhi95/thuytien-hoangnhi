@@ -1,13 +1,58 @@
-import React, { useEffect } from "react"
-
+import React, { useEffect, useState  } from "react"
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
-
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import './love-story.css'
+const TARGET_DATE = new Date("2026-04-12T00:00:00").getTime();
 
 const LoveStory = (props) => {
+
+  const { days, hours, minutes, seconds } = useCountdown();
+
+  function useCountdown() {
+    const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
+
+    function getTimeRemaining() {
+      const now = new Date().getTime();
+      const distance = TARGET_DATE - now;
+
+      if (distance <= 0) {
+        return {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        };
+      }
+
+      return {
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        ),
+        minutes: Math.floor(
+            (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        ),
+        seconds: Math.floor(
+            (distance % (1000 * 60)) /
+            1000
+        ),
+      };
+    }
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setTimeLeft(getTimeRemaining());
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }, []);
+
+    return timeLeft;
+  }
 
   useEffect(() => {
     const button = document.querySelector(".love-story-container4");
@@ -83,7 +128,6 @@ const LoveStory = (props) => {
     // Cleanup
     // =============================
     return () => {
-      if (observer) observer.disconnect();
       if (interval) clearInterval(interval);
     };
   }, []);
@@ -133,28 +177,43 @@ const LoveStory = (props) => {
           />
         </Helmet>
         <section className="love-story-hero">
-          <img
-              src="/assets/AC.webp"
-              alt="Wedding Hero"
-              className="hero-image"
-          />
 
-          {/* Layer 2: Full overlay information panel */}
-          <div className="hero-info-layer">
-            <span className="section-subtitle">SAVE THE DAY</span>
+          <picture className="hero-picture">
+            {/* Màn hình dọc (mobile portrait) */}
+            <source
+                srcSet="/assets/TULE9216.webp"
+                media="(orientation: portrait)"
+            />
 
-            <h1 className="hero-title love-story-hero-title hero-names">
-              <span className="name-line">Hoàng Nhi</span>
-              <span className="amp">&</span>
-              <span className="name-line">Thủy Tiên</span>
+            {/* Màn hình ngang */}
+            <img
+                src="/assets/AC1.webp"
+                alt="Wedding Hero"
+                className="hero-image"
+            />
+          </picture>
+
+          <div className="hero-overlay-dark"></div>
+
+          <div className="hero-content">
+            <p className="hero-subtitle">
+              SAVE THE DATE
+            </p>
+            <h1 className="hero-main-title">
+              Hoàng Nhi <span>&</span> Thủy Tiên
             </h1>
 
-            <p className="hero-subtitle">
-              12 - 04 - 2026
-            </p>
-            <p className="hero-subtitle">
-            The Beginning of Forever
-            </p>
+
+            <div className="hero-divider">
+            </div>
+            <p className="hero-date">12 April, 2026</p>
+
+            <div className="hero-countdown">
+              <div><strong>{String(days).padStart(2, "0")}</strong><span>Ngày</span></div>
+              <div><strong>{String(hours).padStart(2, "0")}</strong><span>Giờ</span></div>
+              <div><strong>{String(minutes).padStart(2, "0")}</strong><span>Phút</span></div>
+              <div><strong>{String(seconds).padStart(2, "0")}</strong><span>Giây</span></div>
+            </div>
 
             <div className="hero-actions">
               <a href="#invitation" className="scroll-down-btn">
@@ -162,7 +221,7 @@ const LoveStory = (props) => {
               </a>
             </div>
           </div>
-          <div className="floating-hearts"></div>
+
         </section>
         <section className="invitation-section" id="invitation">
           <div className="invitation-container">
@@ -184,29 +243,37 @@ const LoveStory = (props) => {
               {/* LEFT – TEXT */}
               <div className="invitation-text">
                 <p>
-                  Chúng tôi vô cùng biết ơn vì đã có gia đình, bạn bè và những người thân yêu luôn đồng hành, yêu thương và chúc phúc suốt hành trình vừa qua.
+                  Chúng tôi vô cùng biết ơn vì đã có gia đình, bạn bè và những người thân yêu luôn đồng hành, yêu thương
+                  và chúc phúc suốt hành trình vừa qua.
                 </p>
                 <p>
-                  Trân trọng kính mời bạn đến chung vui trong <strong>Lễ Thành Hôn</strong> của chúng tôi, để cùng chia sẻ khoảnh khắc đặc biệt khi chúng tôi bắt đầu một chương mới của cuộc đời.
+                  Trân trọng kính mời bạn đến chung vui trong <strong>Lễ Thành Hôn</strong> của chúng tôi, để cùng chia
+                  sẻ khoảnh khắc đặc biệt khi chúng tôi bắt đầu một chương mới của cuộc đời.
                 </p>
               </div>
 
               {/* RIGHT – IMAGE */}
-              <div className="invitation-image">
-                <div className="easel-wrapper">
+              <div className="couple-section">
+                <div className="couple-grid">
 
-                  <div className="wedding-board">
-                    <img
-                        src="/assets/ANH_DAM_HOI_01.webp"
-                        alt="Cô dâu và Chú rể"
-                    />
+                  <div className="person-card">
+                    <div className="person-image">
+                      <img src="/assets/T.webp" alt="Cô dâu"/>
+                    </div>
+                    <h3>Thủy Tiên</h3>
+                    <p>Xin chảo! Mình là cô dâu. Mình thích cá.</p>
                   </div>
 
-                  <div className="leg leg-left"></div>
-                  <div className="leg leg-right"></div>
-                  <div className="leg leg-back"></div>
+                  <div className="person-card">
+                    <div className="person-image">
+                      <img src="/assets/N.webp" alt="Chú rể"/>
+                    </div>
+                    <h3>Hoàng Nhi</h3>
+                    <p>Xin chào! Mình là chú rể. Mình thích bơi trong nước.</p>
+                  </div>
 
                 </div>
+
               </div>
 
             </div>
@@ -242,7 +309,9 @@ const LoveStory = (props) => {
                   <span className="timeline-date">10 - 08 - 2024</span>
                   <h3 className="section-subtitle">How We Met</h3>
                   <p className="section-content">
-                    Cuối tiệc sau giải giao lưu cầu lông <strong>ITKV5 Open</strong>, giữa những phút giây vội vàng, chúng mình có dịp được giới thiệu với nhau đôi lời giản dị. Một cuộc gặp gỡ ngắn ngủi, mộc mạc, nhưng đủ để lưu lại ấn tượng đầu tiên — nhẹ nhàng mà khó quên.
+                    Cuối tiệc sau giải giao lưu cầu lông <strong>ITKV5 Open</strong>, giữa những phút giây vội vàng,
+                    chúng mình có dịp được giới thiệu với nhau đôi lời giản dị. Một cuộc gặp gỡ ngắn ngủi, mộc mạc,
+                    nhưng đủ để lưu lại ấn tượng đầu tiên — nhẹ nhàng mà khó quên.
                   </p>
                 </div>
               </div>
@@ -275,7 +344,8 @@ const LoveStory = (props) => {
                   <span className="timeline-date">14 - 09 - 2024</span>
                   <h3 className="section-subtitle">The First Date</h3>
                   <p className="section-content">
-                    Buổi hẹn đầu tiên bắt đầu với “Làm giàu với ma” và khép lại bằng một bàn dimsum nhiều đến mức cả hai chỉ biết nhìn nhau cười.
+                    Buổi hẹn đầu tiên bắt đầu với “Làm giàu với ma” và khép lại bằng một bàn dimsum nhiều đến mức cả hai
+                    chỉ biết nhìn nhau cười.
                     Chỉ vậy thôi, mà trở thành một kỷ niệm thật đáng nhớ trong hành trình yêu thương của chúng tôi.
                   </p>
                 </div>
@@ -309,7 +379,10 @@ const LoveStory = (props) => {
                   <span className="timeline-date">20 - 10 - 2024</span>
                   <h3 className="section-subtitle">The Big Move</h3>
                   <p className="section-content">
-                    Tại <strong>"Hide Away Bistro Ben Tre"</strong> vào một ngày thật ý nghĩa, chúng tôi đã cùng nhau nói ra những điều chân thành nhất từ trái tim. Và khoảnh khắc nhận được cái gật đầu đồng ý ấy đã biến ngày hôm đó trở thành một dấu mốc đặc biệt — khi cả hai chính thức nắm tay nhau trên hành trình tìm đến bến bờ hạnh phúc.
+                    Tại <strong>"Hide Away Bistro Ben Tre"</strong> vào một ngày thật ý nghĩa, chúng tôi đã cùng nhau
+                    nói ra những điều chân thành nhất từ trái tim. Và khoảnh khắc nhận được cái gật đầu đồng ý ấy đã
+                    biến ngày hôm đó trở thành một dấu mốc đặc biệt — khi cả hai chính thức nắm tay nhau trên hành trình
+                    tìm đến bến bờ hạnh phúc.
 
                   </p>
                 </div>
@@ -335,7 +408,9 @@ const LoveStory = (props) => {
                   <span className="timeline-date">20 - 10 - 2025</span>
                   <h3 className="section-subtitle">The Proposal</h3>
                   <p className="section-content">
-                    Một lần nữa trở lại <strong>"Hide Away Bistro Ben Tre"</strong> — vẫn là nơi quen thuộc ấy, nhưng lần này là một dịp đặc biệt hơn. Đó là ngày lời cầu hôn được cất lên và nhận được cái gật đầu đồng ý. Giây phút ấy, mọi cảm xúc như vỡ òa, mở ra một chặng đường mới đầy yêu thương.
+                    Một lần nữa trở lại <strong>"Hide Away Bistro Ben Tre"</strong> — vẫn là nơi quen thuộc ấy, nhưng
+                    lần này là một dịp đặc biệt hơn. Đó là ngày lời cầu hôn được cất lên và nhận được cái gật đầu đồng
+                    ý. Giây phút ấy, mọi cảm xúc như vỡ òa, mở ra một chặng đường mới đầy yêu thương.
                   </p>
                 </div>
               </div>
@@ -347,7 +422,7 @@ const LoveStory = (props) => {
             <div className="gallery-intro">
               <h2 className="section-title">Album Hình Cưới</h2>
               <p className="section-subtitle">
-                Một vài khoảnh khắc chuẩn bị cho ngày trọng đại của chúng mình
+                We come to love not by finding a perfect person but by learning to see an imperfect person perfectly
               </p>
             </div>
             <div className="gallery-grid-3x2">
@@ -482,71 +557,138 @@ const LoveStory = (props) => {
           </div>
 
           {/* Content */}
-          <div className="wedding-info-grid">
-            {/* Nhà cô dâu */}
-            <div className="wedding-info-card">
-              <h3 className="info-title">Nhà Cô Dâu</h3>
+          {/*<div className="wedding-info-grid">*/}
+          {/*  /!* Nhà cô dâu *!/*/}
+          {/*  <div className="wedding-info-card">*/}
+          {/*    <h3 className="info-title">Nhà Cô Dâu</h3>*/}
 
-              <div className="info-item">
-                <span className="info-label">Thời gian</span>
-                <span className="info-value">Thứ Bảy, 11/04/2026</span>
+          {/*    <div className="info-item">*/}
+          {/*      <span className="info-label">Thời gian</span>*/}
+          {/*      <span className="info-value">Thứ Bảy, 11/04/2026</span>*/}
+          {/*    </div>*/}
+          {/*    <div className="info-item">*/}
+          {/*      <span className="info-label">Nhằm ngày</span>*/}
+          {/*      <span className="info-value">24 tháng 02 năm Bính Ngọ</span>*/}
+          {/*    </div>*/}
+
+          {/*    <div className="info-item">*/}
+          {/*      <span className="info-label">Địa điểm</span>*/}
+          {/*      <span className="info-value">*/}
+          {/*      Tư gia nhà gái, Mỏ Cày Nam, Bến Tre*/}
+          {/*      </span>*/}
+          {/*    </div>*/}
+
+
+          {/*        <iframe*/}
+          {/*            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"*/}
+          {/*            width="100%"*/}
+          {/*            height="300"*/}
+          {/*            style={{border: 0}}*/}
+          {/*            allowFullScreen*/}
+          {/*            loading="lazy"*/}
+          {/*            referrerPolicy="no-referrer-when-downgrade"*/}
+          {/*            title="Google Map"*/}
+          {/*        ></iframe>*/}
+          {/*      </div>*/}
+
+          {/*      /!* Nhà chú rể *!/*/}
+          {/*      <div className="wedding-info-card">*/}
+          {/*        <h3 className="info-title">Nhà Chú Rể</h3>*/}
+
+          {/*        <div className="info-item">*/}
+          {/*          <span className="info-label">Thời gian</span>*/}
+          {/*          <span className="info-value">Chủ Nhật, 12/04/2026</span>*/}
+          {/*        </div>*/}
+
+          {/*        <div className="info-item">*/}
+          {/*          <span className="info-label">Nhằm ngày</span>*/}
+          {/*          <span className="info-value">25 tháng 02 năm Bính Ngọ</span>*/}
+          {/*        </div>*/}
+
+          {/*        <div className="info-item">*/}
+          {/*          <span className="info-label">Địa điểm</span>*/}
+          {/*          <span className="info-value">*/}
+          {/*      Tư gia nhà trai, Thị trấn Búng Tàu, Phụng Hiệp, Hậu Giang*/}
+          {/*    </span>*/}
+          {/*    </div>*/}
+          {/*    <iframe*/}
+          {/*        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d935.7920007072033!2d105.7782778!3d9.712527799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNDInNDUuMSJOIDEwNcKwNDYnNDEuOCJF!5e1!3m2!1svi!2s!4v1771916956778!5m2!1svi!2s"*/}
+          {/*        width="100%"*/}
+          {/*        height="300"*/}
+          {/*        style={{border: 0}}*/}
+          {/*        allowFullScreen*/}
+          {/*        loading="lazy"*/}
+          {/*        referrerPolicy="no-referrer-when-downgrade"*/}
+          {/*        title="Google Map"*/}
+          {/*    ></iframe>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+          <div className="wedding-info-wrapper">
+
+            {/* HÀNG 1 */}
+            <div className="wedding-info-row">
+
+              <div className="info-content">
+                <h3 className="info-title">Nhà Cô Dâu</h3>
+
+                <p className="info-time">Thứ Bảy, 11/04/2026</p>
+                <p className="info-time">24 tháng 02 năm Bính Ngọ</p>
+                <p className="info-address">
+                  Tư gia nhà gái, Mỏ Cày Nam, Bến Tre
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/place/10%C2%B002'49.7%22N+106%C2%B022'12.4%22E/@10.047139,106.370111,1110m/data=!3m1!1e3!4m4!3m3!8m2!3d10.0471389!4d106.3701111?hl=vi&entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="info-button"
+                >
+                  Chỉ Đường
+                </a>
               </div>
-              <div className="info-item">
-                <span className="info-label">Nhằm ngày</span>
-                <span className="info-value">24 tháng 02 năm Bính Ngọ</span>
+
+              <div className="info-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"
+                    loading="lazy"
+                    title="Map Bride"
+                ></iframe>
               </div>
 
-              <div className="info-item">
-                <span className="info-label">Địa điểm</span>
-                <span className="info-value">
-          Tư gia nhà gái, Mỏ Cày Nam, Bến Tre
-        </span>
-              </div>
-
-
-              <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"
-                  width="100%"
-                  height="300"
-                  style={{border: 0}}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Map"
-              ></iframe>
             </div>
 
-            {/* Nhà chú rể */}
-            <div className="wedding-info-card">
-              <h3 className="info-title">Nhà Chú Rể</h3>
+            {/* HÀNG 2 */}
+            <div className="wedding-info-row reverse">
 
-              <div className="info-item">
-                <span className="info-label">Thời gian</span>
-                <span className="info-value">Chủ Nhật, 12/04/2026</span>
+              <div className="info-content">
+                <h3 className="info-title">Nhà Chú Rể</h3>
+
+                <p className="info-time">Chủ Nhật, 12/04/2026</p>
+                <p className="info-time">25 tháng 02 năm Bính Ngọ</p>
+                <p className="info-address">
+                  Thị trấn Búng Tàu, Phụng Hiệp, Hậu Giang
+                </p>
+
+                <a
+                    href="https://www.google.com/maps?ll=9.712528,105.778278&z=18&t=h&hl=vi&gl=US&mapclient=embed&q=9%C2%B042%2745.1%22N+105%C2%B046%2741.8%22E+9.712528,+105.778278@9.7125278,105.7782778"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="info-button"
+                >
+                  Chỉ Đường
+                </a>
               </div>
 
-              <div className="info-item">
-                <span className="info-label">Nhằm ngày</span>
-                <span className="info-value">25 tháng 02 năm Bính Ngọ</span>
+              <div className="info-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d935.7920007072033!2d105.7782778!3d9.712527799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNDInNDUuMSJOIDEwNcKwNDYnNDEuOCJF!5e1!3m2!1svi!2s!4v1771916956778!5m2!1svi!2s"
+                    loading="lazy"
+                    title="Map Groom"
+                ></iframe>
               </div>
 
-              <div className="info-item">
-                <span className="info-label">Địa điểm</span>
-                <span className="info-value">
-            Tư gia nhà trai, Thị trấn Búng Tàu, Phụng Hiệp, Hậu Giang
-        </span>
-              </div>
-              <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d935.7920007072033!2d105.7782778!3d9.712527799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNDInNDUuMSJOIDEwNcKwNDYnNDEuOCJF!5e1!3m2!1svi!2s!4v1771916956778!5m2!1svi!2s"
-                  width="100%"
-                  height="300"
-                  style={{border: 0}}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Map"
-              ></iframe>
             </div>
+
           </div>
         </section>
         <div className="love-story-container2">

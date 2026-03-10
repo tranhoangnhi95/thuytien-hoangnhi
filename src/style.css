@@ -1081,12 +1081,6 @@
   overflow: hidden;
   background-color: #f7dbe5; /* pastel nền */
 }
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* giống video cover */
-}
  
 .hero-content-outer {
   width: 100%;
@@ -1164,7 +1158,7 @@
   position: relative;
 }
 /* đường line trang trí bên dưới title */
-.timeline-header .section-title::after, .gallery-intro .section-title::after, .rsvp-header .section-title::after, .wedding-info-header .section-title::after {
+.timeline-header .section-title::after, .gallery-intro .section-title::after, .rsvp-header .section-title::after, .wedding-info-header .section-title::after, .hero-divider::after, .info-title::after {
   content: "";
   display: block;
   width: 80px;
