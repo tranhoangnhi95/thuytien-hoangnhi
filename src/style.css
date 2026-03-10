@@ -48,6 +48,7 @@
   --font-style-heading: normal;
   --font-weight-medium: 500;
   --font-family-heading: "Playfair Display", serif;
+  --font-family-main-title: "Pinyon Script", serif;
   --font-weight-heading: 600;
   --letter-spacing-body: 0.02em;
   --line-height-heading: 1.25;
@@ -59,7 +60,7 @@
   --dl-layout-size-xlarge: 192px;
   --dl-layout-size-xsmall: 16px;
   --font-style-subheading: italic;
-  --color-surface-elevated: color-mix(in oklab, #FFF9F6 92%, #E89EB3);
+  --color-surface-elevated: color-mix(in oklab, rgba(255, 249, 246, 0.8) 92%, rgba(232, 158, 179, 0.69));
   --dl-color-theme-accent1: #FFFFFF;
   --dl-color-theme-accent2: #F5D1B0;
   --dl-layout-radius-round: 50%;
