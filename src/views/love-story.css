@@ -72,7 +72,7 @@
 
 .invitation-header {
   text-align: center;
-  margin-bottom: 80px;
+  /*margin-bottom: 80px;*/
 }
 
 .invitation-header .section-title {
@@ -110,7 +110,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;
 }
 
 .invitation-text {
@@ -118,6 +117,7 @@
   line-height: 1.9;
   color: #444;
   font-family: var(--font-family-heading);
+  background: var(--color-surface-elevated);
 }
 
 .invitation-text p {
@@ -283,18 +283,24 @@
 }
 
 .rsvp-section {
-  padding: 100px 24px;
+  background: #f3d6dd;
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
   background: var(--color-surface-elevated);
 }
 
 .rsvp-container {
+  padding: 40px;
   max-width: 700px;
   margin: 0 auto;
+  background: white;
+  border-radius: 0.75rem;
 }
 
 .rsvp-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 50px;
 }
 
 .section-subtitle {
@@ -319,7 +325,7 @@
 
 .rsvp-form button {
   padding: 16px;
-  background: #f4a7b9;
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: 24px;
@@ -493,11 +499,16 @@
 
 .love-story-hero {
   position: relative;
-  height: 100dvh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
 }
-
 
 /* ===== Layer 1: Image ===== */
 .hero-image {
@@ -506,13 +517,138 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.05);
+  animation: slowZoom 20s ease-in-out infinite alternate;
+  object-position: center 30%;
   z-index: 1;
+}
+
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
+
+.hero-picture{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+
+@media (orientation: portrait){
+
+  .hero-image{
+    object-position:center 30%;
+  }
+
+}
+
+
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-main-title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(30px, 6vw, 90px);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-family: var(--font-family-heading);
+  font-size: clamp(18px, 3vw, 24px);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.hero-divider {
+  display: flex;
+  gap: 6px;
+  margin: 20px 0;
+}
+
+.hero-divider span {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #f8c8dc;
+  opacity: 0.8;
+}
+
+.hero-play-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  margin: 20px 0;
+  font-size: 20px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.9);
+  color: #333;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.hero-play-btn:hover {
+  transform: scale(1.1);
+}
+
+.hero-date {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.hero-countdown {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.hero-countdown div {
+  text-align: center;
+}
+
+.hero-countdown strong {
+  display: block;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.hero-countdown span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
 }
 
 /* ===== Layer 2: Full Information Panel ===== */
 .hero-info-layer {
   position: absolute;
-  inset: 0;                /* FULL bằng ảnh */
+  inset: 0;
   z-index: 2;
 
   display: flex;
@@ -526,16 +662,11 @@
   background:
           radial-gradient(
                   circle at center,
-                  rgba(255, 200, 220, 0.15),
-                  rgba(0, 0, 0, 0.35)
+                  rgba(255, 210, 230, 0.18),
+                  rgba(0, 0, 0, 0.45)
           );
-  backdrop-filter: blur(4px);
 
-  /*!* NỀN TỐI NHẸ GẦN TRONG SUỐT *!*/
-  /*background: rgba(0, 0, 0, 0.25);*/
-
-  /*!* nếu muốn mờ nhẹ ảnh bên dưới *!*/
-  /*backdrop-filter: blur(3px);*/
+  backdrop-filter: blur(6px);
 }
 
 /* Text styling */
@@ -556,6 +687,20 @@
   margin-bottom: 30px;
 
 }
+
+.love-story-hero-title::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+          circle,
+          rgba(255, 200, 220, 0.25),
+          transparent 70%
+  );
+  filter: blur(25px);
+  z-index: -1;
+}
+
 .love-story-hero-title::after {
   content: "";
   display: block;
@@ -571,14 +716,48 @@
   );
 }
 
+.hero-tag {
+  letter-spacing: 4px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-quote {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+
+@media (max-width: 768px) {
+  .love-story-hero-title {
+    font-size: clamp(40px, 8vw, 56px);
+  }
+
+  /*.hero-subtitle {*/
+  /*  font-size: 16px;*/
+  /*}*/
+
+  .love-story-hero {
+    height: 100vh;
+  }
+
+  .hero-image {
+    object-position: center 20%;
+  }
+}
+
 .hero-subtitle {
-  font-size: 24px;
+  font-size: clamp(16px, 4vw, 20px);
+  /*font-size: 20px;*/
   font-weight: 300;
   letter-spacing: 2px;
   color: rgba(255, 240, 245, 0.9);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 12px;
 }
-
 
 
 .floating-hearts {
@@ -592,11 +771,8 @@
 .heart {
   position: absolute;
   bottom: -40px;
-  pointer-events: none;
-
-  opacity: 0.5;          /* nhạt hơn */
-  filter: blur(0.5px);   /* mềm hơn */
-
+  opacity: 0.4;
+  filter: blur(1px);
   animation: floatUp linear forwards;
 }
 
@@ -639,20 +815,22 @@
 
   background: linear-gradient(
           45deg,
+          #ffdce8,
           #f8c8dc,
-          #ffdce8,
+          #fff,
           #f2b6d4,
-          #ffdce8,
-          #f8c8dc
+          #ffdce8
   );
 
-  background-size: 250% 250%;
-  background-position: 0% 50%;
+  background-size: 300% 300%;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: waveMove 8s linear infinite;
+  animation: waveMove 10s linear infinite;
+
+  text-shadow:
+          0 4px 20px rgba(255, 200, 220, 0.25);
 }
 
 @keyframes waveMove {
@@ -683,4 +861,160 @@
     font-size: 0.9em;
   }
 
+}
+
+
+.couple-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.couple-title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.couple-subtitle {
+  color: #777;
+  margin-bottom: 50px;
+}
+
+.couple-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: nowrap; /* QUAN TRỌNG */
+}
+
+.person-card {
+  max-width: 260px;
+}
+
+.person-image {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.person-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.person-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.person-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.person-socials {
+  margin-top: 10px;
+  color: #d9a6b4;
+  letter-spacing: 6px;
+}
+
+@media (max-width: 768px) {
+  .couple-grid {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.wedding-info-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.wedding-info-wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.wedding-info-row {
+  display: flex;
+  align-items: stretch;
+}
+
+.wedding-info-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.info-content {
+  width: 50%;
+  background: var(--color-surface-elevated);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.info-map {
+  width: 50%;
+}
+
+.info-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: none;
+}
+
+.info-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  color:  var(--color-primary);
+  margin-bottom: 25px;
+}
+
+.info-time {
+  margin-bottom: 15px;
+}
+
+.info-address {
+  margin-bottom: 30px;
+  color: var(--color-on-surface);
+}
+
+.info-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background:  var(--color-primary);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.info-button:hover {
+  background: #d49aaa;
+}
+
+@media (max-width: 900px) {
+  .wedding-info-row,
+  .wedding-info-row.reverse {
+    flex-direction: column;
+  }
+
+  .info-content,
+  .info-map {
+    width: 100%;
+  }
+
+  .info-content {
+    padding: 60px 30px;
+  }
 }
