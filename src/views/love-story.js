@@ -4,21 +4,30 @@ import { Helmet } from 'react-helmet'
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import './love-story.css'
-const TARGET_DATE = new Date("2026-04-12T00:00:00").getTime();
+const TARGET_DATE = new Date("2026-04-12T09:00:00").getTime();
 import FlipCountdown from "../components/FlipCountdown";
 
 const LoveStory = (props) => {
 
-  const { days, hours, minutes, seconds } = useCountdown();
+  const { days, hours, minutes, seconds,isFinished } = useCountdown();
 
   function useCountdown() {
-    const [timeLeft, setTimeLeft] = useState(getTimeRemaining());
+    const [timeLeft, setTimeLeft] = useState(
+        {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        }
+    );
+    const [isFinished, setIsFinished] = useState(false);
 
     function getTimeRemaining() {
       const now = new Date().getTime();
       const distance = TARGET_DATE - now;
 
       if (distance <= 0) {
+        setIsFinished(true);
         return {
           days: 0,
           hours: 0,
@@ -52,7 +61,7 @@ const LoveStory = (props) => {
       return () => clearInterval(interval);
     }, []);
 
-    return timeLeft;
+    return {...timeLeft, isFinished};
   }
 
   useEffect(() => {
@@ -165,6 +174,7 @@ const LoveStory = (props) => {
 
 
   return (
+
       <div id="lovestory" className="love-story-container1">
         <Helmet>
           <title>Hoàng Nhi & Thủy Tiên - Wedding Invitation</title>
@@ -182,13 +192,13 @@ const LoveStory = (props) => {
           <picture className="hero-picture">
             {/* Màn hình dọc (mobile portrait) */}
             <source
-                srcSet="/assets/TULE9216.webp"
+                srcSet="/assets/NEN02.webp"
                 media="(orientation: portrait)"
             />
 
             {/* Màn hình ngang */}
             <img
-                src="/assets/AC1.webp"
+                src="/assets/NEN01.webp"
                 alt="Wedding Hero"
                 className="hero-image"
             />
@@ -208,8 +218,12 @@ const LoveStory = (props) => {
             <div className="hero-divider">
             </div>
             <p className="hero-date">12 April, 2026</p>
-
-            <FlipCountdown/>
+            <FlipCountdown
+                days={days}
+                hours={hours}
+                minutes={minutes}
+                seconds={seconds}
+                isFinished={isFinished}/>
 
             <div className="hero-actions">
               <a href="#invitation" className="scroll-down-btn">
@@ -425,7 +439,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="1"
-                    src="/assets/TULE8347.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB01.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -435,7 +449,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="2"
-                    src="/assets/TULE8457.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB02.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -445,7 +459,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="3"
-                    src="/assets/TULE8521.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB03.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -455,7 +469,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="4"
-                    src="/assets/TULE8557.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB04.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -465,7 +479,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="5"
-                    src="/assets/TULE8599.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB05.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
@@ -475,7 +489,7 @@ const LoveStory = (props) => {
               <div className="gallery-item">
                 <img
                     alt="6"
-                    src="/assets/TULE8612.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB06.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
                 <div className="gallery-caption-overlay">
