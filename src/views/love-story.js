@@ -3,66 +3,10 @@ import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/footer'
 import './love-story.css'
-const TARGET_DATE = new Date("2026-04-12T09:00:00").getTime();
-import FlipCountdown from "../components/FlipCountdown";
 import LazyImage from "../components/LazyImage";
+import CountdownSection from "../components/CountdownSection";
 
 const LoveStory = (props) => {
-
-  const { days, hours, minutes, seconds,isFinished } = useCountdown();
-
-  function useCountdown() {
-    const [timeLeft, setTimeLeft] = useState(
-        {
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        }
-    );
-    const [isFinished, setIsFinished] = useState(false);
-
-    function getTimeRemaining() {
-      const now = new Date().getTime();
-      const distance = TARGET_DATE - now;
-
-      if (distance <= 0) {
-        setIsFinished(true);
-        return {
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-        };
-      }
-
-      return {
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-        ),
-        minutes: Math.floor(
-            (distance % (1000 * 60 * 60)) /
-            (1000 * 60)
-        ),
-        seconds: Math.floor(
-            (distance % (1000 * 60)) /
-            1000
-        ),
-      };
-    }
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setTimeLeft(getTimeRemaining());
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }, []);
-
-    return {...timeLeft, isFinished};
-  }
 
   useEffect(() => {
     const button = document.querySelector(".love-story-container4");
@@ -221,12 +165,7 @@ const LoveStory = (props) => {
             <div className="hero-divider">
             </div>
             <p className="hero-date">12 April, 2026</p>
-            <FlipCountdown
-                days={days}
-                hours={hours}
-                minutes={minutes}
-                seconds={seconds}
-                isFinished={isFinished}/>
+            <CountdownSection />
 
             <div className="hero-actions">
               <a href="#invitation" className="scroll-down-btn">
@@ -654,4 +593,4 @@ const LoveStory = (props) => {
   )
 }
 
-export default LoveStory
+export default React.memo(LoveStory);
