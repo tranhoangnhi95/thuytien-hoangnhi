@@ -1,11 +1,11 @@
 import React, { useEffect, useState  } from "react"
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
-import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 import './love-story.css'
 const TARGET_DATE = new Date("2026-04-12T09:00:00").getTime();
 import FlipCountdown from "../components/FlipCountdown";
+import LazyImage from "../components/LazyImage";
 
 const LoveStory = (props) => {
 
@@ -201,6 +201,9 @@ const LoveStory = (props) => {
                 src="/assets/NEN01.webp"
                 alt="Wedding Hero"
                 className="hero-image"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
             />
           </picture>
 
@@ -268,7 +271,10 @@ const LoveStory = (props) => {
 
                   <div className="person-card">
                     <div className="person-image">
-                      <img src="/assets/T.webp" alt="Cô dâu"/>
+                      <LazyImage
+                          src="/assets/T.webp"
+                          alt="Cô dâu"
+                      />
                     </div>
                     <h3>Thủy Tiên</h3>
                     <p>Xin chảo! Mình là cô dâu. Mình thích cá.</p>
@@ -276,7 +282,9 @@ const LoveStory = (props) => {
 
                   <div className="person-card">
                     <div className="person-image">
-                      <img src="/assets/N.webp" alt="Chú rể"/>
+                      <LazyImage
+                          src="/assets/N.webp" alt="Chú rể"
+                      />
                     </div>
                     <h3>Hoàng Nhi</h3>
                     <p>Xin chào! Mình là chú rể. Mình thích bơi trong nước.</p>
@@ -437,8 +445,8 @@ const LoveStory = (props) => {
             </div>
             <div className="gallery-grid-3x2">
               <div className="gallery-item">
-                <img
-                    alt="1"
+                <LazyImage
+                    alt="album01"
                     src="/assets/AB01.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -447,8 +455,8 @@ const LoveStory = (props) => {
                 </div>
               </div>
               <div className="gallery-item">
-                <img
-                    alt="2"
+                <LazyImage
+                    alt="album01"
                     src="/assets/AB02.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -457,8 +465,8 @@ const LoveStory = (props) => {
                 </div>
               </div>
               <div className="gallery-item">
-                <img
-                    alt="3"
+                <LazyImage
+                    alt="album03"
                     src="/assets/AB03.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -467,8 +475,8 @@ const LoveStory = (props) => {
                 </div>
               </div>
               <div className="gallery-item">
-                <img
-                    alt="4"
+                <LazyImage
+                    alt="album04"
                     src="/assets/AB04.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -477,8 +485,8 @@ const LoveStory = (props) => {
                 </div>
               </div>
               <div className="gallery-item">
-                <img
-                    alt="5"
+                <LazyImage
+                    alt="album05"
                     src="/assets/AB05.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -487,8 +495,8 @@ const LoveStory = (props) => {
                 </div>
               </div>
               <div className="gallery-item">
-                <img
-                    alt="6"
+                <LazyImage
+                    alt="album06"
                     src="/assets/AB06.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                     className="gallery-image"
                 />
@@ -565,74 +573,6 @@ const LoveStory = (props) => {
               Chúng tôi rất mong chờ được đón tiếp quý vị
             </p>
           </div>
-
-          {/* Content */}
-          {/*<div className="wedding-info-grid">*/}
-          {/*  /!* Nhà cô dâu *!/*/}
-          {/*  <div className="wedding-info-card">*/}
-          {/*    <h3 className="info-title">Nhà Cô Dâu</h3>*/}
-
-          {/*    <div className="info-item">*/}
-          {/*      <span className="info-label">Thời gian</span>*/}
-          {/*      <span className="info-value">Thứ Bảy, 11/04/2026</span>*/}
-          {/*    </div>*/}
-          {/*    <div className="info-item">*/}
-          {/*      <span className="info-label">Nhằm ngày</span>*/}
-          {/*      <span className="info-value">24 tháng 02 năm Bính Ngọ</span>*/}
-          {/*    </div>*/}
-
-          {/*    <div className="info-item">*/}
-          {/*      <span className="info-label">Địa điểm</span>*/}
-          {/*      <span className="info-value">*/}
-          {/*      Tư gia nhà gái, Mỏ Cày Nam, Bến Tre*/}
-          {/*      </span>*/}
-          {/*    </div>*/}
-
-
-          {/*        <iframe*/}
-          {/*            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1869.6813071755787!2d106.37011109999999!3d10.0471389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDAyJzQ5LjciTiAxMDbCsDIyJzEyLjQiRQ!5e1!3m2!1svi!2s!4v1771916910470!5m2!1svi!2s"*/}
-          {/*            width="100%"*/}
-          {/*            height="300"*/}
-          {/*            style={{border: 0}}*/}
-          {/*            allowFullScreen*/}
-          {/*            loading="lazy"*/}
-          {/*            referrerPolicy="no-referrer-when-downgrade"*/}
-          {/*            title="Google Map"*/}
-          {/*        ></iframe>*/}
-          {/*      </div>*/}
-
-          {/*      /!* Nhà chú rể *!/*/}
-          {/*      <div className="wedding-info-card">*/}
-          {/*        <h3 className="info-title">Nhà Chú Rể</h3>*/}
-
-          {/*        <div className="info-item">*/}
-          {/*          <span className="info-label">Thời gian</span>*/}
-          {/*          <span className="info-value">Chủ Nhật, 12/04/2026</span>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="info-item">*/}
-          {/*          <span className="info-label">Nhằm ngày</span>*/}
-          {/*          <span className="info-value">25 tháng 02 năm Bính Ngọ</span>*/}
-          {/*        </div>*/}
-
-          {/*        <div className="info-item">*/}
-          {/*          <span className="info-label">Địa điểm</span>*/}
-          {/*          <span className="info-value">*/}
-          {/*      Tư gia nhà trai, Thị trấn Búng Tàu, Phụng Hiệp, Hậu Giang*/}
-          {/*    </span>*/}
-          {/*    </div>*/}
-          {/*    <iframe*/}
-          {/*        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d935.7920007072033!2d105.7782778!3d9.712527799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNDInNDUuMSJOIDEwNcKwNDYnNDEuOCJF!5e1!3m2!1svi!2s!4v1771916956778!5m2!1svi!2s"*/}
-          {/*        width="100%"*/}
-          {/*        height="300"*/}
-          {/*        style={{border: 0}}*/}
-          {/*        allowFullScreen*/}
-          {/*        loading="lazy"*/}
-          {/*        referrerPolicy="no-referrer-when-downgrade"*/}
-          {/*        title="Google Map"*/}
-          {/*    ></iframe>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
           <div className="wedding-info-wrapper">
 
             {/* HÀNG 1 */}
@@ -701,60 +641,6 @@ const LoveStory = (props) => {
 
           </div>
         </section>
-        <div className="love-story-container2">
-          <div className="love-story-container3">
-            <Script
-                html={`<script defer data-name="love-story-interactions">
-(function(){
-  // Intersection Observer for reveal animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const revealOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        revealOnScroll.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Apply to timeline entries and milestone blocks
-  document.querySelectorAll('.timeline-entry, .milestone-block, .note-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease-out';
-    revealOnScroll.observe(el);
-  });
-
-  // Simple Lightbox Logic (Mockup for Gallery)
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      const caption = item.querySelector('.gallery-caption-overlay p').textContent;
-      
-      // In a real production environment, we would use <dialog> here
-      // For this stunning visual presentation, we focus on the CSS/HTML structure
-      console.log(\`Opening lightbox for: \${caption}\`);
-    });
-  });
-
-  // Parallax effect for Hero Video
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroVideo = document.querySelector('.hero-video');
-    if (heroVideo) {
-      heroVideo.style.transform = \`translateY(\${scrolled * 0.3}px)\`;
-    }
-  });
-})()
-</script>`}
-            ></Script>
-          </div>
-        </div>
         <Footer></Footer>
         <a href="#rsvp">
           <div
