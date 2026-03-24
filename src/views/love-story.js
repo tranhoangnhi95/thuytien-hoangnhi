@@ -210,9 +210,11 @@ const LoveStory = (props) => {
 
                   <div className="person-card">
                     <div className="person-image">
-                      <LazyImage
-                          src="/assets/T.webp"
+                      <img
+                          src="/assets/T_1.webp"
                           alt="Cô dâu"
+                          loading="lazy"
+                          decoding="async"
                       />
                     </div>
                     <h3>Thủy Tiên</h3>
@@ -221,8 +223,11 @@ const LoveStory = (props) => {
 
                   <div className="person-card">
                     <div className="person-image">
-                      <LazyImage
-                          src="/assets/N.webp" alt="Chú rể"
+                      <img
+                          src="/assets/N_1.webp"
+                          alt="Chú rể"
+                          loading="lazy"
+                          decoding="async"
                       />
                     </div>
                     <h3>Hoàng Nhi</h3>
@@ -384,60 +389,72 @@ const LoveStory = (props) => {
             </div>
             <div className="gallery-grid-3x2">
               <div className="gallery-item">
-                <LazyImage
+                <img
                     alt="album01"
-                    src="/assets/AB01.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB01_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
                 </div>
               </div>
               <div className="gallery-item">
-                <LazyImage
-                    alt="album01"
-                    src="/assets/AB02.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                <img
+                    alt="album02"
+                    src="/assets/AB02_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
                 </div>
               </div>
               <div className="gallery-item">
-                <LazyImage
+                <img
                     alt="album03"
-                    src="/assets/AB03.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB03_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
                 </div>
               </div>
               <div className="gallery-item">
-                <LazyImage
+                <img
                     alt="album04"
-                    src="/assets/AB04.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB04_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
                 </div>
               </div>
               <div className="gallery-item">
-                <LazyImage
+                <img
                     alt="album05"
-                    src="/assets/AB05.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB05_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
                 </div>
               </div>
               <div className="gallery-item">
-                <LazyImage
+                <img
                     alt="album06"
-                    src="/assets/AB06.webp?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/assets/AB06_1.webp"
                     className="gallery-image"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="gallery-caption-overlay">
                   <p className="section-content"></p>
